@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #FF6B00;
+  --color-brand-yellow: #FFD700;
+  --color-brand-cream: #FFF8F0;
+  --color-brand-beige: #F5E6D3;
+  --color-brand-dark: #1a1a1a;
+  --color-brand-darker: #111111;
+  --color-brand-gray: #2a2a2a;
+  --font-heading: 'Unbounded', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === SMOOTH BORDER-RADIUS FIX === */
+/* This addresses the pixel staircasing on rounded buttons */
+.smooth-radius {
+  border-radius: 12px;
+  background-clip: padding-box;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  outline: none;
+}
+
+.smooth-radius-lg {
+  border-radius: 16px;
+  background-clip: padding-box;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  outline: none;
+}
+
+.smooth-radius-xl {
+  border-radius: 24px;
+  background-clip: padding-box;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  outline: none;
+}
+
+.smooth-radius-full {
+  border-radius: 9999px;
+  background-clip: padding-box;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  outline: none;
+}
+
+/* Button base with GPU-accelerated smooth edges */
+.btn-primary {
+  border-radius: 12px;
+  background: linear-gradient(135deg, #FF6B00, #FF8C38);
+  background-clip: padding-box;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 4px 12px rgba(255, 107, 0, 0.25);
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  outline: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateZ(0) translateY(-2px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), 0 8px 24px rgba(255, 107, 0, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateZ(0) translateY(0);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 2px 8px rgba(255, 107, 0, 0.25);
+}
+
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), 0 0 0 3px rgba(255, 107, 0, 0.4);
+}
+
+/* Glass morphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3), 0 4px 24px rgba(0, 0, 0, 0.06);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.dark .glass-card {
+  background: rgba(42, 42, 42, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06), 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 0, 0.3);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 107, 0, 0.5);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 0, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(255, 107, 0, 0.6); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Hide scrollbar for horizontal scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
